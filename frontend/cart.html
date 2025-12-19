@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Online Book Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">📚 Online Book Store</div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="books.html" class="nav-link">Browse Books</a>
+        <a href="cart.html" class="nav-link">Cart (<span id="cartCount">0</span>)</a>
+        <div class="auth-section">
+          <span id="userDisplay" style="display:none; margin-right: 10px;"></span>
+          <button id="loginBtn" onclick="window.location.href='login.html'" class="btn btn-secondary">Login</button>
+          <button id="logoutBtn" onclick="logout()" class="btn btn-secondary" style="display:none;">Logout</button>
+          <a id="ordersLink" href="orders.html" class="btn btn-secondary" style="display:none; margin-left: 10px; text-decoration: none; padding: 8px 16px; font-size: 14px;">Orders</a>
+          <a id="adminLink" href="admin.html" class="btn btn-danger" style="display:none; margin-left: 10px; text-decoration: none; padding: 8px 16px; font-size: 14px;">Admin</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Cart Section -->
+    <section id="cartSection" class="section active">
+      <h1>Shopping Cart</h1>
+      <div id="cartContent"></div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Online Book Store. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

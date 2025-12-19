@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db  # Windows thumbnail cache
+
+# Logs
+logs/
+*.log
+lerna-debug.log*
+
+# Build outputs
+dist/
+build/
+out/
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output/
+
+# MongoDB
+mongodb/
+.mongodb/
+*.mongodb
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Misc
+.cache/
+.parcel-cache/

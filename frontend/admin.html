@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Online Book Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">📚 Online Book Store</div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="books.html" class="nav-link">Browse Books</a>
+        <a href="cart.html" class="nav-link">Cart (<span id="cartCount">0</span>)</a>
+        <div class="auth-section">
+          <span id="userDisplay" style="display:none; margin-right: 10px;"></span>
+          <button id="loginBtn" onclick="window.location.href='login.html'" class="btn btn-secondary">Login</button>
+          <button id="logoutBtn" onclick="logout()" class="btn btn-secondary" style="display:none;">Logout</button>
+          <a id="ordersLink" href="orders.html" class="btn btn-secondary" style="display:none; margin-left: 10px; text-decoration: none; padding: 8px 16px; font-size: 14px;">Orders</a>
+          <a id="adminLink" href="admin.html" class="btn btn-danger" style="display:none; margin-left: 10px; text-decoration: none; padding: 8px 16px; font-size: 14px;">Admin</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Admin Dashboard Section -->
+    <section id="adminSection" class="section active">
+      <div class="admin-container">
+        <h1>📊 Admin Dashboard</h1>
+        
+        <!-- Admin Tabs -->
+        <div class="admin-tabs">
+          <button class="admin-tab active" onclick="showAdminTab('books')">Manage Books</button>
+          <button class="admin-tab" onclick="showAdminTab('orders')">Manage Orders</button>
+        </div>
+
+        <!-- Books Management Tab -->
+        <div id="booksManagementTab" class="admin-tab-content active">
+          <h2>Book Management</h2>
+          
+          <!-- Add Book Form -->
+          <div class="admin-form-box">
+            <h3>Add New Book</h3>
+            <form id="addBookForm" onsubmit="handleAddBook(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" id="newBookTitle" required>
+                </div>
+                <div class="form-group">
+                  <label>Author</label>
+                  <input type="text" id="newBookAuthor" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Price (EGP)</label>
+                  <input type="number" id="newBookPrice" min="0" required>
+                </div>
+                <div class="form-group">
+                  <label>Stock</label>
+                  <input type="number" id="newBookStock" min="0" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea id="newBookDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Rating</label>
+                  <input type="number" id="newBookRating" min="0" max="5" step="0.1" value="0">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Book</button>
+              <p class="form-error" id="addBookError"></p>
+            </form>
+          </div>
+
+          <!-- Books List -->
+          <div class="admin-list-box">
+            <h3>All Books</h3>
+            <div id="adminBooksList" class="admin-books-list"></div>
+          </div>
+        </div>
+
+        <!-- Orders Management Tab -->
+        <div id="ordersManagementTab" class="admin-tab-content">
+          <h2>Order Management</h2>
+          <div id="adminOrdersList" class="admin-orders-list"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Edit Book Modal -->
+  <div id="editBookModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Book</h2>
+        <button class="modal-close" onclick="closeEditModal()">&times;</button>
+      </div>
+      <form id="editBookForm" onsubmit="handleEditBook(event)">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="editBookTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <input type="text" id="editBookAuthor" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Price (EGP)</label>
+            <input type="number" id="editBookPrice" min="0" required>
+          </div>
+          <div class="form-group">
+            <label>Stock</label>
+            <input type="number" id="editBookStock" min="0" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Rating</label>
+            <input type="number" id="editBookRating" min="0" max="5" step="0.1" value="0">
+          </div>
+          <div class="form-group">
+            <label>Popularity</label>
+            <input type="number" id="editBookPopularity" min="0" value="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="editBookDescription" rows="4"></textarea>
+        </div>
+        <div class="modal-buttons">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+        </div>
+        <p class="form-error" id="editBookError"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Online Book Store. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
