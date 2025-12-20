@@ -100,15 +100,12 @@ online-bookstore/
 │   │   ├── Book.js
 │   │   ├── Category.js
 │   │   ├── Order.js
-│   │   ├── Admin.js
-│   │   └── CustomerUser.js
 │   ├── routes/
 │   │   ├── users.js
 │   │   ├── books.js
 │   │   ├── orders.js
 │   │   └── middleware/
 │   │       └── auth.js
-│   ├── dbConnections/
 │   ├── db.js
 │   ├── server.js
 │   └── seed.js
