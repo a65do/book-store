@@ -118,7 +118,6 @@ online-bookstore/
 │   ├── admin.html
 │   ├── script.js
 │   ├── style.css
-│   └── images/
 ├── package.json
 └── README.md
 ```
