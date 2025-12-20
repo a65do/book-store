@@ -104,8 +104,6 @@ online-bookstore/
 │   │   ├── users.js
 │   │   ├── books.js
 │   │   ├── orders.js
-│   │   └── middleware/
-│   │       └── auth.js
 │   ├── db.js
 │   ├── server.js
 │   └── seed.js
